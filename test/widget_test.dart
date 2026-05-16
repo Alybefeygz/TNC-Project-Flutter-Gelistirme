@@ -9,29 +9,40 @@ void main() {
 
     expect(find.text('Mini Katalog'), findsWidgets);
     expect(find.text('Urunler'), findsOneWidget);
-    expect(find.text('Kablosuz Kulaklik'), findsOneWidget);
+    expect(find.text('Sofresco Soguk Sikim Meyve Suyu'), findsOneWidget);
 
-    await tester.enterText(find.byType(TextField), 'saat');
+    await tester.enterText(find.byType(TextField), 'serum');
     await tester.pumpAndSettle();
 
-    expect(find.text('Akilli Saat'), findsOneWidget);
-    expect(find.text('Kablosuz Kulaklik'), findsNothing);
+    expect(find.text('Vitamin C Serumu'), findsOneWidget);
+    expect(find.text('Sofresco Soguk Sikim Meyve Suyu'), findsNothing);
 
-    await tester.tap(find.text('Akilli Saat'));
-    await tester.pumpAndSettle();
-
-    expect(
-      find.text(
-        'Bildirim takibi, aktivite olcumu ve sade arayuz sunan akilli saat.',
-      ),
-      findsOneWidget,
+    final productTapArea = find.ancestor(
+      of: find.text('Vitamin C Serumu'),
+      matching: find.byType(InkWell),
     );
+
+    await tester.ensureVisible(productTapArea);
+    await tester.pumpAndSettle();
+    await tester.tap(productTapArea);
+    await tester.pumpAndSettle();
+
+    const detailDescription =
+        'Cilde parlaklik hissi veren, portakal temali vitamin C serumu.';
+
+    expect(find.text('Vitamin C Serumu'), findsWidgets);
+    await tester.scrollUntilVisible(find.text(detailDescription), 300);
+    await tester.pumpAndSettle();
+
+    expect(find.text(detailDescription), findsOneWidget);
+    await tester.scrollUntilVisible(find.text('Sepete Ekle'), 300);
+    await tester.pumpAndSettle();
     expect(find.text('Sepete Ekle'), findsOneWidget);
 
     await tester.tap(find.text('Sepete Ekle'));
     await tester.pump();
 
     expect(find.text('Sepetteki urun sayisi: 1'), findsOneWidget);
-    expect(find.text('Akilli Saat sepete eklendi.'), findsOneWidget);
+    expect(find.text('Vitamin C Serumu sepete eklendi.'), findsOneWidget);
   });
 }

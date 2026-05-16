@@ -1,50 +1,50 @@
 [
   {
     "id": 1,
-    "name": "Kablosuz Kulaklik",
-    "description": "Gunluk kullanim icin hafif, tasinabilir ve uzun pil omurlu kablosuz kulaklik.",
-    "price": 899.90,
-    "image": "assets/images/product_1.png",
-    "category": "Elektronik"
+    "name": "Sofresco Soguk Sikim Meyve Suyu",
+    "description": "Limon ve nane aromali, ferah icimli soguk sikim meyve suyu.",
+    "price": 89.90,
+    "image": "assets/images/cold_pressed_juice.jpg",
+    "category": "Icecek"
   },
   {
     "id": 2,
-    "name": "Akilli Saat",
-    "description": "Bildirim takibi, aktivite olcumu ve sade arayuz sunan akilli saat.",
-    "price": 1299.00,
-    "image": "assets/images/product_2.png",
-    "category": "Elektronik"
+    "name": "Raufer Limonlu Soda",
+    "description": "Limon aromali, serinletici ve gazli cam sise icecek.",
+    "price": 74.90,
+    "image": "assets/images/raufler_lemon_soda.jpg",
+    "category": "Icecek"
   },
   {
     "id": 3,
-    "name": "Sirt Cantasi",
-    "description": "Okul, is ve kisa seyahatler icin genis ic hacimli dayanikli sirt cantasi.",
-    "price": 549.50,
-    "image": "assets/images/product_1.png",
-    "category": "Aksesuar"
+    "name": "Hello Seftali Deodorant",
+    "description": "Seftali kokulu, canli ve yazlik his veren gunluk deodorant.",
+    "price": 229.90,
+    "image": "assets/images/hello_peach_sparkle.jpg",
+    "category": "Kisisel Bakim"
   },
   {
     "id": 4,
-    "name": "Masa Lambasi",
-    "description": "Calisma alanlari icin ayarlanabilir govdeli ve yumusak isik veren masa lambasi.",
-    "price": 349.90,
-    "image": "assets/images/product_2.png",
-    "category": "Ev Yasam"
+    "name": "Domates Aromali Solid Kolonya",
+    "description": "Domates temali kirmizi ambalajiyla dikkat ceken solid kolonya.",
+    "price": 189.90,
+    "image": "assets/images/tomato_deodorant.jpg",
+    "category": "Kisisel Bakim"
   },
   {
     "id": 5,
-    "name": "Termos Bardak",
-    "description": "Sicak ve soguk icecekleri uzun sure koruyan pratik kapakli termos bardak.",
-    "price": 249.90,
-    "image": "assets/images/product_1.png",
-    "category": "Mutfak"
+    "name": "Vitamin C Serumu",
+    "description": "Cilde parlaklik hissi veren, portakal temali vitamin C serumu.",
+    "price": 349.90,
+    "image": "assets/images/vitamin_c_serum.jpg",
+    "category": "Cilt Bakimi"
   },
   {
     "id": 6,
-    "name": "Not Defteri",
-    "description": "Gunluk notlar, ders calismalari ve planlama icin sert kapakli defter.",
-    "price": 119.90,
-    "image": "assets/images/product_2.png",
-    "category": "Kirtasiye"
+    "name": "Centella Peptit Serumu",
+    "description": "Centella asiatica ve peptide icerikli, sakin bakim rutini icin serum.",
+    "price": 399.90,
+    "image": "assets/images/centella_peptide_serum.jpg",
+    "category": "Cilt Bakimi"
   }
 ]

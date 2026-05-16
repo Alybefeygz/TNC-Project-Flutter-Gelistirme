@@ -58,10 +58,20 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: const Text('Mini Katalog'),
         actions: [
-          IconButton(
-            onPressed: () {},
-            tooltip: 'Sepet',
-            icon: const Icon(Icons.shopping_bag_outlined),
+          Padding(
+            padding: const EdgeInsets.only(right: 12),
+            child: DecoratedBox(
+              decoration: BoxDecoration(
+                color: const Color(0xFFFFFCF7),
+                borderRadius: BorderRadius.circular(8),
+                border: Border.all(color: const Color(0xFF101018)),
+              ),
+              child: IconButton(
+                onPressed: () {},
+                tooltip: 'Sepet',
+                icon: const Icon(Icons.shopping_bag_outlined),
+              ),
+            ),
           ),
         ],
       ),
@@ -86,13 +96,55 @@ class _HomePageState extends State<HomePage> {
                 SliverPadding(
                   padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
                   sliver: SliverToBoxAdapter(
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(8),
-                      child: AspectRatio(
-                        aspectRatio: 16 / 6,
-                        child: Image.asset(
-                          'assets/images/banner.png',
-                          fit: BoxFit.cover,
+                    child: DecoratedBox(
+                      decoration: BoxDecoration(
+                        color: const Color(0xFFFFC55C),
+                        borderRadius: BorderRadius.circular(8),
+                        border: Border.all(color: const Color(0xFF101018)),
+                        boxShadow: const [
+                          BoxShadow(
+                            color: Color(0x302B2240),
+                            blurRadius: 24,
+                            offset: Offset(0, 14),
+                          ),
+                        ],
+                      ),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(8),
+                        child: Stack(
+                          children: [
+                            AspectRatio(
+                              aspectRatio: 16 / 6,
+                              child: Image.asset(
+                                'assets/images/catalog_banner.jpg',
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                            Positioned.fill(
+                              child: DecoratedBox(
+                                decoration: BoxDecoration(
+                                  gradient: LinearGradient(
+                                    begin: Alignment.bottomLeft,
+                                    end: Alignment.topRight,
+                                    colors: [
+                                      Colors.black.withValues(alpha: 0.48),
+                                      Colors.black.withValues(alpha: 0.04),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Positioned(
+                              left: 18,
+                              bottom: 16,
+                              right: 18,
+                              child: Text(
+                                'Taze secimler',
+                                style: Theme.of(context).textTheme.headlineSmall
+                                    ?.copyWith(color: Colors.white),
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     ),
@@ -115,7 +167,7 @@ class _HomePageState extends State<HomePage> {
                   sliver: SliverToBoxAdapter(
                     child: Text(
                       'Urunler',
-                      style: Theme.of(context).textTheme.titleMedium,
+                      style: Theme.of(context).textTheme.headlineSmall,
                     ),
                   ),
                 ),
@@ -128,13 +180,16 @@ class _HomePageState extends State<HomePage> {
                           padding: const EdgeInsets.all(20),
                           child: Row(
                             children: [
-                              Icon(
+                              const Icon(
                                 Icons.search_off,
-                                color: Theme.of(context).colorScheme.primary,
+                                color: Color(0xFF101018),
                               ),
                               const SizedBox(width: 12),
-                              const Expanded(
-                                child: Text('Arama sonucu bulunamadi.'),
+                              Expanded(
+                                child: Text(
+                                  'Arama sonucu bulunamadi.',
+                                  style: Theme.of(context).textTheme.bodyMedium,
+                                ),
                               ),
                             ],
                           ),
@@ -160,6 +215,7 @@ class _HomePageState extends State<HomePage> {
                         return ProductCard(
                           product: product,
                           onTap: () => _openProductDetail(product),
+                          accentColor: _productAccentColor(index),
                         );
                       },
                     ),
@@ -170,5 +226,18 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
     );
+  }
+
+  Color _productAccentColor(int index) {
+    const colors = [
+      Color(0xFFFFC55C),
+      Color(0xFF9EC5FF),
+      Color(0xFFFF8FD8),
+      Color(0xFFFF6B5C),
+      Color(0xFFFFB26B),
+      Color(0xFFC7B6FF),
+    ];
+
+    return colors[index % colors.length];
   }
 }

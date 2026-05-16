@@ -5,77 +5,98 @@ class AppTheme {
 
   static ThemeData get light {
     final colorScheme = ColorScheme.fromSeed(
-      seedColor: const Color(0xFF2563EB),
+      seedColor: const Color(0xFF7C5CFF),
       brightness: Brightness.light,
     );
 
     return ThemeData(
       colorScheme: colorScheme,
       useMaterial3: true,
-      scaffoldBackgroundColor: const Color(0xFFF8FAFC),
+      scaffoldBackgroundColor: const Color(0xFFF2EEFF),
       textTheme: const TextTheme(
         headlineSmall: TextStyle(
-          fontSize: 24,
-          fontWeight: FontWeight.w700,
+          fontSize: 25,
+          fontWeight: FontWeight.w800,
+          letterSpacing: 0,
         ),
         titleMedium: TextStyle(
           fontSize: 16,
-          fontWeight: FontWeight.w600,
+          fontWeight: FontWeight.w800,
+          letterSpacing: 0,
         ),
-        bodyMedium: TextStyle(
-          fontSize: 14,
-          height: 1.4,
-        ),
+        bodyMedium: TextStyle(fontSize: 14, height: 1.4, letterSpacing: 0),
       ),
       appBarTheme: AppBarTheme(
         centerTitle: true,
-        backgroundColor: colorScheme.surface,
-        foregroundColor: colorScheme.onSurface,
+        backgroundColor: const Color(0xFFF2EEFF),
+        foregroundColor: const Color(0xFF101018),
         elevation: 0,
-        scrolledUnderElevation: 1,
-        titleTextStyle: TextStyle(
-          color: colorScheme.onSurface,
+        scrolledUnderElevation: 0,
+        titleTextStyle: const TextStyle(
+          color: Color(0xFF101018),
           fontSize: 18,
-          fontWeight: FontWeight.w700,
+          fontWeight: FontWeight.w800,
+          letterSpacing: 0,
         ),
       ),
       cardTheme: CardThemeData(
-        color: colorScheme.surface,
+        color: const Color(0xFFFFFCF7),
         elevation: 0,
         margin: EdgeInsets.zero,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8),
-          side: BorderSide(color: colorScheme.outlineVariant),
+          side: const BorderSide(color: Color(0xFF101018)),
         ),
       ),
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
-        fillColor: colorScheme.surface,
+        fillColor: const Color(0xFFFFFCF7),
+        hintStyle: const TextStyle(
+          color: Color(0xFF777184),
+          fontWeight: FontWeight.w500,
+        ),
+        prefixIconColor: const Color(0xFF101018),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
-          borderSide: BorderSide(color: colorScheme.outlineVariant),
+          borderSide: BorderSide.none,
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
-          borderSide: BorderSide(color: colorScheme.outlineVariant),
+          borderSide: const BorderSide(color: Color(0xFF101018)),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
-          borderSide: BorderSide(
-            color: colorScheme.primary,
-            width: 1.5,
-          ),
+          borderSide: const BorderSide(color: Color(0xFF101018), width: 1.5),
+        ),
+        contentPadding: const EdgeInsets.symmetric(
+          horizontal: 16,
+          vertical: 16,
         ),
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
-          backgroundColor: colorScheme.primary,
-          foregroundColor: colorScheme.onPrimary,
-          minimumSize: const Size.fromHeight(48),
+          backgroundColor: const Color(0xFF101018),
+          foregroundColor: Colors.white,
+          minimumSize: const Size.fromHeight(52),
+          textStyle: const TextStyle(
+            fontSize: 15,
+            fontWeight: FontWeight.w800,
+            letterSpacing: 0,
+          ),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8),
+            side: const BorderSide(color: Color(0xFF101018)),
           ),
         ),
+      ),
+      snackBarTheme: SnackBarThemeData(
+        backgroundColor: const Color(0xFF101018),
+        contentTextStyle: const TextStyle(
+          color: Colors.white,
+          fontWeight: FontWeight.w600,
+        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+        behavior: SnackBarBehavior.floating,
       ),
     );
   }
