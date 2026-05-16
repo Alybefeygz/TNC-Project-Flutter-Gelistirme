@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../data/product_repository.dart';
 import '../models/product.dart';
+import 'product_detail_page.dart';
 import '../widgets/product_card.dart';
 
 class HomePage extends StatefulWidget {
@@ -19,6 +20,16 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     _productsFuture = _productRepository.loadProducts();
+  }
+
+  void _openProductDetail(Product product) {
+    Navigator.push(
+      context,
+      MaterialPageRoute<void>(
+        settings: RouteSettings(arguments: product),
+        builder: (context) => const ProductDetailPage(),
+      ),
+    );
   }
 
   @override
@@ -88,7 +99,12 @@ class _HomePageState extends State<HomePage> {
                           childAspectRatio: 0.72,
                         ),
                     itemBuilder: (context, index) {
-                      return ProductCard(product: products[index]);
+                      final product = products[index];
+
+                      return ProductCard(
+                        product: product,
+                        onTap: () => _openProductDetail(product),
+                      );
                     },
                   ),
                 ),

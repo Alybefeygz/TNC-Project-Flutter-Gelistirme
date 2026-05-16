@@ -9,5 +9,16 @@ void main() {
     expect(find.text('Mini Katalog'), findsWidgets);
     expect(find.text('Urunler'), findsOneWidget);
     expect(find.text('Kablosuz Kulaklik'), findsOneWidget);
+
+    await tester.tap(find.text('Kablosuz Kulaklik'));
+    await tester.pumpAndSettle();
+
+    expect(
+      find.text(
+        'Gunluk kullanim icin hafif, tasinabilir ve uzun pil omurlu kablosuz kulaklik.',
+      ),
+      findsOneWidget,
+    );
+    expect(find.text('Sepete Ekle'), findsOneWidget);
   });
 }
