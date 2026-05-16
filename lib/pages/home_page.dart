@@ -15,6 +15,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   final ProductRepository _productRepository = const ProductRepository();
   late final Future<List<Product>> _productsFuture;
+  String _searchQuery = '';
 
   @override
   void initState() {
@@ -30,6 +31,25 @@ class _HomePageState extends State<HomePage> {
         builder: (context) => const ProductDetailPage(),
       ),
     );
+  }
+
+  void _updateSearchQuery(String value) {
+    setState(() {
+      _searchQuery = value.trim().toLowerCase();
+    });
+  }
+
+  List<Product> _filterProducts(List<Product> products) {
+    if (_searchQuery.isEmpty) {
+      return products;
+    }
+
+    return products.where((product) {
+      final name = product.name.toLowerCase();
+      final category = product.category.toLowerCase();
+
+      return name.contains(_searchQuery) || category.contains(_searchQuery);
+    }).toList();
   }
 
   @override
@@ -59,7 +79,7 @@ class _HomePageState extends State<HomePage> {
               );
             }
 
-            final products = snapshot.data ?? [];
+            final products = _filterProducts(snapshot.data ?? []);
 
             return CustomScrollView(
               slivers: [
@@ -79,6 +99,18 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 SliverPadding(
+                  padding: const EdgeInsets.fromLTRB(16, 20, 16, 0),
+                  sliver: SliverToBoxAdapter(
+                    child: TextField(
+                      onChanged: _updateSearchQuery,
+                      decoration: const InputDecoration(
+                        hintText: 'Urun veya kategori ara',
+                        prefixIcon: Icon(Icons.search),
+                      ),
+                    ),
+                  ),
+                ),
+                SliverPadding(
                   padding: const EdgeInsets.fromLTRB(16, 24, 16, 12),
                   sliver: SliverToBoxAdapter(
                     child: Text(
@@ -87,27 +119,51 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                 ),
-                SliverPadding(
-                  padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
-                  sliver: SliverGrid.builder(
-                    itemCount: products.length,
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2,
-                          mainAxisSpacing: 12,
-                          crossAxisSpacing: 12,
-                          childAspectRatio: 0.72,
+                if (products.isEmpty)
+                  SliverPadding(
+                    padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+                    sliver: SliverToBoxAdapter(
+                      child: Card(
+                        child: Padding(
+                          padding: const EdgeInsets.all(20),
+                          child: Row(
+                            children: [
+                              Icon(
+                                Icons.search_off,
+                                color: Theme.of(context).colorScheme.primary,
+                              ),
+                              const SizedBox(width: 12),
+                              const Expanded(
+                                child: Text('Arama sonucu bulunamadi.'),
+                              ),
+                            ],
+                          ),
                         ),
-                    itemBuilder: (context, index) {
-                      final product = products[index];
+                      ),
+                    ),
+                  )
+                else
+                  SliverPadding(
+                    padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+                    sliver: SliverGrid.builder(
+                      itemCount: products.length,
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 2,
+                            mainAxisSpacing: 12,
+                            crossAxisSpacing: 12,
+                            childAspectRatio: 0.72,
+                          ),
+                      itemBuilder: (context, index) {
+                        final product = products[index];
 
-                      return ProductCard(
-                        product: product,
-                        onTap: () => _openProductDetail(product),
-                      );
-                    },
+                        return ProductCard(
+                          product: product,
+                          onTap: () => _openProductDetail(product),
+                        );
+                      },
+                    ),
                   ),
-                ),
               ],
             );
           },

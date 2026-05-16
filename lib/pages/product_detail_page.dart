@@ -2,8 +2,30 @@ import 'package:flutter/material.dart';
 
 import '../models/product.dart';
 
-class ProductDetailPage extends StatelessWidget {
+class ProductDetailPage extends StatefulWidget {
   const ProductDetailPage({super.key});
+
+  @override
+  State<ProductDetailPage> createState() => _ProductDetailPageState();
+}
+
+class _ProductDetailPageState extends State<ProductDetailPage> {
+  int _cartCount = 0;
+
+  void _addToCart(Product product) {
+    setState(() {
+      _cartCount++;
+    });
+
+    ScaffoldMessenger.of(context)
+      ..hideCurrentSnackBar()
+      ..showSnackBar(
+        SnackBar(
+          content: Text('${product.name} sepete eklendi.'),
+          duration: const Duration(seconds: 2),
+        ),
+      );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -18,6 +40,18 @@ class ProductDetailPage extends StatelessWidget {
           icon: const Icon(Icons.arrow_back),
         ),
         title: Text(product.name),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 12),
+            child: Center(
+              child: Badge(
+                label: Text('$_cartCount'),
+                isLabelVisible: _cartCount > 0,
+                child: const Icon(Icons.shopping_bag_outlined),
+              ),
+            ),
+          ),
+        ],
       ),
       body: SafeArea(
         child: ListView(
@@ -58,9 +92,27 @@ class ProductDetailPage extends StatelessWidget {
                 color: colorScheme.primary,
               ),
             ),
-            const SizedBox(height: 24),
+            const SizedBox(height: 20),
+            Card(
+              child: Padding(
+                padding: const EdgeInsets.all(16),
+                child: Row(
+                  children: [
+                    Icon(
+                      Icons.shopping_cart_checkout,
+                      color: colorScheme.primary,
+                    ),
+                    const SizedBox(width: 12),
+                    Expanded(
+                      child: Text('Sepetteki urun sayisi: $_cartCount'),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            const SizedBox(height: 16),
             ElevatedButton.icon(
-              onPressed: () {},
+              onPressed: () => _addToCart(product),
               icon: const Icon(Icons.shopping_bag_outlined),
               label: const Text('Sepete Ekle'),
             ),
