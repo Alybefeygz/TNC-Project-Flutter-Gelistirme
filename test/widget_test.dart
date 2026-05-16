@@ -5,7 +5,7 @@ void main() {
   testWidgets('Mini katalog uygulamasi acilir', (WidgetTester tester) async {
     await tester.pumpWidget(const MiniCatalogApp());
 
-    expect(find.text('Mini Katalog'), findsOneWidget);
-    expect(find.text('Katalog yapisi hazirlaniyor'), findsOneWidget);
+    expect(find.text('Mini Katalog'), findsWidgets);
+    expect(find.text('Urunler'), findsOneWidget);
   });
 }
