@@ -1,35 +1,42 @@
-# Mini Katalog Uygulamasi
+# Mini Katalog Uygulaması
 
-Flutter ile hazirlanmis, egitim amacli basit bir mini katalog uygulamasidir.
-Uygulamada urunler lokal JSON dosyasindan okunur, ana sayfada kart yapisiyla
-listelenir, arama/filtreleme yapilabilir ve urun detay sayfasinda basit sepet
-state simulasyonu gosterilir.
+Flutter ile hazırlanmış, eğitim amaçlı basit bir mini katalog uygulamasıdır.
+Uygulamada ürünler lokal JSON dosyasından okunur, ana sayfada kart yapısıyla
+listelenir, arama/filtreleme yapılabilir ve ürün detay sayfasında basit sepet
+state simülasyonu gösterilir.
 
-## Ozellikler
+## Canlı Demo
 
-- Ana sayfa ve urun listeleme ekrani
-- GridView tabanli urun kartlari
-- Urun detay sayfasi
-- Navigator ile sayfa gecisi
-- Route Arguments ile secilen urunu detay sayfasina tasima
-- Lokal JSON veri simulasyonu
-- Asset gorsel yonetimi
-- Urun adi ve kategoriye gore arama/filtreleme
-- Sepete ekleme state simulasyonu
-- Sade, mobil uyumlu Flutter UI tasarimi
+Uygulama Vercel üzerinde canlı olarak yayınlanmaktadır:
 
-## Kullanilan Teknolojiler
+[https://tnc-project-flutter-gelistirme.vercel.app](https://tnc-project-flutter-gelistirme.vercel.app)
+
+## Özellikler
+
+- Ana sayfa ve ürün listeleme ekranı
+- GridView tabanlı ürün kartları
+- Ürün detay sayfası
+- Navigator ile sayfa geçişi
+- Route Arguments ile seçilen ürünü detay sayfasına taşıma
+- Lokal JSON veri simülasyonu
+- Asset görsel yönetimi
+- Ürün adı ve kategoriye göre arama/filtreleme
+- Sepete ekleme state simülasyonu
+- Sade, mobil uyumlu Flutter UI tasarımı
+
+## Kullanılan Teknolojiler
 
 - Flutter 3.41.9
 - Dart 3.11.5
 - Material Design
 - Lokal JSON
 - Image.asset
+- Vercel
 
-Ekstra paket kullanilmamistir. Proje Flutter'in varsayilan Material yapisi ile
-gelistirilmistir.
+Ekstra paket kullanılmamıştır. Proje Flutter'ın varsayılan Material yapısı ile
+geliştirilmiştir.
 
-## Proje Klasor Yapisi
+## Proje Klasör Yapısı
 
 ```text
 lib/
@@ -57,71 +64,71 @@ screenshots/
 
 ## Kurulum
 
-Projeyi bilgisayarina aldiktan sonra proje klasorune gir:
+Projeyi bilgisayarına aldıktan sonra proje klasörüne gir:
 
 ```bash
 cd mini_katalog_uygulamasi
 ```
 
-Bagimliliklari yukle:
+Bağımlılıkları yükle:
 
 ```bash
 flutter pub get
 ```
 
-Kod analizini calistir:
+Kod analizini çalıştır:
 
 ```bash
 flutter analyze
 ```
 
-Testleri calistir:
+Testleri çalıştır:
 
 ```bash
 flutter test
 ```
 
-Uygulamayi Chrome uzerinde calistir:
+Uygulamayı Chrome üzerinde çalıştır:
 
 ```bash
 flutter run -d chrome
 ```
 
-Chrome debug baglantisi sorun cikarirsa web-server ile calistir:
+Chrome debug bağlantısı sorun çıkarırsa web-server ile çalıştır:
 
 ```bash
 flutter run -d web-server --web-port 8080
 ```
 
-Sonra tarayicida ac:
+Sonra tarayıcıda aç:
 
 ```text
 http://localhost:8080
 ```
 
-## Ekran Goruntuleri
+## Ekran Görüntüleri
 
 Ana sayfa:
 
 ![Ana Sayfa](screenshots/home.png)
 
-Urun detay sayfasi:
+Ürün detay sayfası:
 
-![Urun Detay](screenshots/detail.png)
+![Ürün Detay](screenshots/detail.png)
 
-Sepete urun eklenmis hali:
+Sepete ürün eklenmiş hali:
 
 ![Sepet State](screenshots/cart.png)
 
-## Veri Kaynagi
+## Veri Kaynağı
 
-Urun verileri lokal olarak tutulur:
+Ürün verileri lokal olarak tutulur:
 
 ```text
 assets/data/products.json
 ```
 
-Her urun icin temel alanlar:
+Her ürün için temel alanlar:
 
 - id
 - name
@@ -130,7 +137,4 @@ Her urun icin temel alanlar:
 - image
 - category
 
-## Not
 
-Bu proje egitim ve demo amaclidir. Gercek e-ticaret altyapisi, odeme sistemi,
-kullanici hesabi, stok takibi veya kalici sepet sistemi icermez.
