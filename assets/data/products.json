@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "name": "Kablosuz Kulaklik",
+    "description": "Gunluk kullanim icin hafif, tasinabilir ve uzun pil omurlu kablosuz kulaklik.",
+    "price": 899.90,
+    "image": "assets/images/product_1.png",
+    "category": "Elektronik"
+  },
+  {
+    "id": 2,
+    "name": "Akilli Saat",
+    "description": "Bildirim takibi, aktivite olcumu ve sade arayuz sunan akilli saat.",
+    "price": 1299.00,
+    "image": "assets/images/product_2.png",
+    "category": "Elektronik"
+  },
+  {
+    "id": 3,
+    "name": "Sirt Cantasi",
+    "description": "Okul, is ve kisa seyahatler icin genis ic hacimli dayanikli sirt cantasi.",
+    "price": 549.50,
+    "image": "assets/images/product_1.png",
+    "category": "Aksesuar"
+  },
+  {
+    "id": 4,
+    "name": "Masa Lambasi",
+    "description": "Calisma alanlari icin ayarlanabilir govdeli ve yumusak isik veren masa lambasi.",
+    "price": 349.90,
+    "image": "assets/images/product_2.png",
+    "category": "Ev Yasam"
+  },
+  {
+    "id": 5,
+    "name": "Termos Bardak",
+    "description": "Sicak ve soguk icecekleri uzun sure koruyan pratik kapakli termos bardak.",
+    "price": 249.90,
+    "image": "assets/images/product_1.png",
+    "category": "Mutfak"
+  },
+  {
+    "id": 6,
+    "name": "Not Defteri",
+    "description": "Gunluk notlar, ders calismalari ve planlama icin sert kapakli defter.",
+    "price": 119.90,
+    "image": "assets/images/product_2.png",
+    "category": "Kirtasiye"
+  }
+]
